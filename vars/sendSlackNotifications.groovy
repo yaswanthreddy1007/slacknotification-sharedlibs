@@ -5,7 +5,7 @@ def call(String buildStatus = 'STARTED') {
   buildStatus =  buildStatus ?: 'SUCCESS'
 
   // Default values
-  def channel ='pipeline'
+  
   def colorName = 'RED'
   def colorCode = '#FF0000'
   def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
@@ -24,5 +24,5 @@ def call(String buildStatus = 'STARTED') {
   }
 
   // Calling the slackSend function to Send notifications.
-  slackSend (color: colorCode, message: summary,channel:pipeline)
+  slackSend (color: colorCode, message: summary)
 }
